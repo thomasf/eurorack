@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+project=${1}
+
+shift
+
+docker run --rm -v $PWD:/opt/eurorack -u=${UID} -w /opt/eurorack thomasf/arm-eabi-toolchain:latest make -f ${project}/makefile ${@}
